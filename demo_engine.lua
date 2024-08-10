@@ -1,10 +1,3 @@
--- TODO:
--- Potentially remove the ghfDemoContext parameter from all systems, as it's available globally
-
-
-
-
-
 -- Initialize context
 ghfDemoContext = {}
 ghfDemoContext.alpha = alpha
