@@ -1,3 +1,7 @@
+
+		            
+
+
 -- Initialize context
 ghfDemoContext = {}
 ghfDemoContext.alpha = alpha
@@ -59,6 +63,7 @@ ghfDemoContext.globalSystems[#ghfDemoContext.globalSystems + 1] = ghfDemoContext
 ghfDemoContext.globalSystems[#ghfDemoContext.globalSystems + 1] = ghfDemoContext.physicsGlobalSystems.mainCollisionResolution
 ghfDemoContext.globalSystems[#ghfDemoContext.globalSystems + 1] = ghfDemoContext.coreGlobalSystems.mainGameObjectUpdate
 ghfDemoContext.globalSystems[#ghfDemoContext.globalSystems + 1] = ghfDemoContext.inputGlobalSystems.mainInputHandler
+ghfDemoContext.globalSystems[#ghfDemoContext.globalSystems + 1] = ghfDemoContext.inputGlobalSystems.toggleInputFocus
 
 -- Collect local systems from context
 ghfDemoContext.localSystems[#ghfDemoContext.localSystems + 1] = ghfDemoContext.physicsLocalSystems.applyGravity

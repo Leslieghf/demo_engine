@@ -1,4 +1,6 @@
 local inputVars = {}
+inputVars.focus = false
+inputVars.lastFocusToggle = nil
 inputVars.w = false
 inputVars.wLock = false
 inputVars.a = false
@@ -21,6 +23,39 @@ inputVars.rmb = false
 inputVars.rmbLock = false
 
 local inputLib = {
+	toggleFocus = function()
+		--local function InputDisablingHook(ply, cmd)
+    	--	if ply:IsBot() or not ply:Alive() then return end
+		--
+    	--	cmd:SetForwardMove(0)
+    	--	cmd:SetSideMove(0)
+    	--	cmd:SetUpMove(0)
+		--
+		--    cmd:RemoveKey(IN_FORWARD)
+		--    cmd:RemoveKey(IN_BACK)
+		--    cmd:RemoveKey(IN_MOVELEFT)
+		--    cmd:RemoveKey(IN_MOVERIGHT)
+		--    cmd:RemoveKey(IN_JUMP)
+		--end
+		
+		--hook.Add("StartCommand", "RMBToggleHook", function(ply, cmd)
+		--    if ply:IsBot() or not ply:Alive() then return end
+		--    
+		--    local inputVars = ghfDemoContext.inputVars
+		--
+		--    if inputVars.rmb then
+		--        if inputVars.focus then
+		--            hook.Remove("StartCommand", "InputDisablingHook")
+		--            inputVars.focus = false
+		--            print("Input disabling deactivated.")
+		--        else
+		--            hook.Add("StartCommand", "InputDisablingHook", InputDisablingHook)
+		--            inputVars.focus = true
+		--            print("Input disabling activated.")
+		--        end
+		--    end
+		--end)
+	end,
     handleW = function()
         if input.IsKeyDown(KEY_W) == true and inputVars.wLock == false then
             if inputVars.w == false then
@@ -175,6 +210,29 @@ inputGlobalSystems.mainInputHandler = function(gameObjects, ghfDemoContext)
     ghfDemoContext.inputLib.handleLMB()
     ghfDemoContext.inputLib.handleMMB()
     ghfDemoContext.inputLib.handleRMB()
+end
+inputGlobalSystems.toggleInputFocus = function(gameObjects, ghfDemoContext)
+	local inputLib = ghfDemoContext.inputLib
+	local inputVars = ghfDemoContext.inputVars
+
+	if inputVars.rmb then
+		print("RMB Pressed")
+		if not inputVars.lastFocusToggle then
+			print("First toggle")
+			inputVars.lastFocusToggle = RealTime()
+			--inputLib.toggleFocus()
+		else
+			print("Non-first toggle")
+			local timeSinceLastToggle = RealTime() - inputVars.lastFocusToggle
+			local toggleCooldown = 0.75
+			
+			if timeSinceLastToggle >= toggleCooldown then
+			print("Cooldowned toggle")
+				inputVars.lastFocusToggle = RealTime()
+				--inputLib.toggleFocus()
+			end
+		end
+	end
 end
 
 return inputLib, inputVars, inputGlobalSystems
