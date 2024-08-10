@@ -76,8 +76,6 @@ ghfDemoContext.localSystems[#ghfDemoContext.localSystems + 1] = ghfDemoContext.p
 ghfDemoContext.localSystems[#ghfDemoContext.localSystems + 1] = ghfDemoContext.renderLocalSystems.updateDynamicCircleColor
 ghfDemoContext.localSystems[#ghfDemoContext.localSystems + 1] = ghfDemoContext.renderLocalSystems.mainShapeRendering
 
-print(getmetatable(ghfDemoContext))
-
 -- Temporary util functions
 local function createExampleObject(self, segments, minRadius, maxRadius, minSpeed, maxSpeed, minAcceleration, maxAcceleration, elasticity, linearDrag, color)
     local example = ghfDemoContext.GameObject:new()
