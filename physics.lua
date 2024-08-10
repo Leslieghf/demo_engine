@@ -343,6 +343,7 @@ end
 
 physicsInvariants.collider1 = function(gameObject)
     local circleCollider = gameObject:getComponent("circleCollider")
+    local rectangleCollider = gameObject:getComponent("rectangleCollider")
 
 	if circleCollider and rectangleCollider then
 		return false
@@ -363,7 +364,7 @@ physicsInvariants.collider2 = function(gameObject)
 end
 
 local physicsGlobalSystems = {}
-physicsGlobalSystems.mainCollisionResolution = function(gameObjects, ghfDemoContext)
+physicsGlobalSystems.mainCollisionResolution = function(gameObjects)
 	local potentialCollisions = {}
 	for i = 1, #gameObjects do
 		for j = i + 1, #gameObjects do

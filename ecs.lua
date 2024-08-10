@@ -57,7 +57,7 @@ coreInvariants.transform1 = function(gameObject)
 end
 
 local coreGlobalSystems = {}
-coreGlobalSystems.mainGameObjectUpdate = function(gameObjects, ghfDemoContext)
+coreGlobalSystems.mainGameObjectUpdate = function(gameObjects)
     for gameObjectID, gameObject in ipairs(gameObjects) do
         -- Enforce invariants
         for invariantName, invariant in pairs(ghfDemoContext.invariants) do

@@ -59,13 +59,13 @@ renderInvariants.shape2 = function(gameObject)
 end
 
 local renderGlobalSystems = {}
-renderGlobalSystems.mainBackgroundRendering = function(gameObjects, ghfDemoContext)
+renderGlobalSystems.mainBackgroundRendering = function(gameObjects)
 	surface.SetDrawColor(0, 0, 0, 255)
 	surface.DrawRect(0, 0, ghfDemoContext.screenStatics.maxX, ghfDemoContext.screenStatics.maxY)
 end
 
 local renderLocalSystems = {}
-renderLocalSystems.updateDynamicCircleColor = function(gameObject, ghfDemoContext)
+renderLocalSystems.updateDynamicCircleColor = function(gameObject)
     local dynamicRigidbody = gameObject:getComponent("dynamicRigidbody")
     local circleShape = gameObject:getComponent("circleShape")
     local renderMaterial = gameObject:getComponent("renderMaterial")
@@ -82,7 +82,7 @@ renderLocalSystems.updateDynamicCircleColor = function(gameObject, ghfDemoContex
         renderMaterial.color = { r = r, g = g, b = b, a = a }
     end
 end
-renderLocalSystems.mainShapeRendering = function(gameObject, ghfDemoContext)
+renderLocalSystems.mainShapeRendering = function(gameObject)
     local transform = gameObject:getComponent("transform")
     local circleShape = gameObject:getComponent("circleShape")
     local rectangleShape = gameObject:getComponent("rectangleShape")
