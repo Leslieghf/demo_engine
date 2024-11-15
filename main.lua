@@ -1,7 +1,3 @@
-
-		            
-
-
 -- Initialize context
 ghfDemoContext = {}
 ghfDemoContext.alpha = alpha
@@ -22,7 +18,7 @@ ghfDemoContext.geometryLib = include("projects/demo_engine/geometry.lua")
 ghfDemoContext.GameObject,
 ghfDemoContext.coreComponents,
 ghfDemoContext.coreInvariants,
-ghfDemoContext.coreGlobalSystems = include("projects/demo_engine/ecs.lua")
+ghfDemoContext.coreGlobalSystems = include("projects/demo_engine/core.lua")
 
 ghfDemoContext.inputLib,
 ghfDemoContext.inputVars,

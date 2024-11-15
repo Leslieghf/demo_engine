@@ -1,3 +1,9 @@
+local gameObjectStatics = {}
+-- Allowed chunk sizes: 1, 2, 3, 6, 7, 9, 14, 18, 21, 42, 63, 126
+gameObjectStatics.chunkSize = 9
+gameObjectStatics.subChunkSize = { x = 13, y = 3 }
+gameObjectStatics.chunks = {}
+
 local gameObjectLib = {
     init = function()
         ghfDemoContext.registryLib.createRegistry("gameObject")
